@@ -4,7 +4,7 @@
 
 가장 처음으로 Javascript를 시작해보도록 하겠습니다.
 
-**문법** 파트에서는 [syntax.js](url)
+**문법** 파트에서는 [syntax.js](https://github.com/IOUIOU50/Node.js/blob/master/1_javascript_Basic/syntax.js)를 참고하시면 되겠습니다.
 
 **기본적**으로 자바스크립트는 다른 프로그래밍언어와 유별나게 다른 문법을 가지고 있는 것은 아닙니다.(말 그대로 **기본적**으로입니다. 자바스크립트만의 특별한 문법 역시 가지고 있습니다.)  
 
