@@ -90,7 +90,7 @@ console.log(str3);
 
 ## 자료형
 
-[DataType.js](url)
+[DataType.js](https://github.com/IOUIOU50/Node.js/blob/master/1_javascript_Basic/DataType.js)
 
 자바스크립트에서는 별도의 자료형을 **명시하지 않습니다**. 해당 변수에 대응하는 값에 따라 자료형이 결정됩니다.
 
@@ -145,7 +145,7 @@ var array1 = [1, 2, 3];
 
 ## 조건문
 
-[Condition.js](url)
+[Condition.js](https://github.com/IOUIOU50/Node.js/blob/master/1_javascript_Basic/Condition.js)
 
 결론적으로, 자바와 똑같다고 생각하시면 됩니다. 별도의 설명 없이 아래의 소스코드로 대신하겠습니다.
 
@@ -190,4 +190,4 @@ console.log(result);
 
 ### 조건문 실습
 
-[양수 구별하기](url)
+[양수 구별하기](https://github.com/IOUIOU50/Node.js/blob/master/1_javascript_Basic/Condition.js)
