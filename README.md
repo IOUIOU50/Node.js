@@ -1,6 +1,6 @@
 # Javascript & Node.js
 
-## 시작 
+## 시작
 
 너무나 당연하지만 Node.js설치와 에디터, 그리고 필요한 나머지 설정을 수행합니다.
 
@@ -50,13 +50,13 @@ javascript의 소스코드를 해석하는 javascript엔진이 필요합니다.
 
 먼저 `main.js`파일을 작성합니다.
 
-<pre>
+```javascript
 let main = () => {
     console.log('hello javascript');
 }
 
 main();
-</pre>
+```
 
 그리고, cmd창을 열어 이 `main.js`이 존재하는 디렉토리로 이동 후, 아래와 같이  
 명령어를 실행해 봅니다.
@@ -73,19 +73,19 @@ main();
 살짝 맛보기로 공부했을 때 배웠던 것인데, 혹시나 될까 하는 마음에 시험해 봤습니다.  
 처음 시작할 때는 보통  
 
-<pre>
-console.log('hello javascript)
-</pre>
+```javascript
+console.log('hello javascript);
+```
 
 라던가  
 
-<pre>
+```javascript
 function main(){
     console.log('hello javascript');
 }
 
 main();
-</pre>
+```
 
 와 같은 형태로 작성하는게 더 잘 이해될 수 있습니다.
 

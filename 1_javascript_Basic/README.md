@@ -26,7 +26,7 @@ cmd창에서 `node main.js`(.js 확장자는 생략 가능)을 입력하여
 
 #### 소스코드
 
-<pre>
+```javascript
 var a = 1;
 b = 2; 
 
@@ -43,13 +43,13 @@ console.log("d : " + d);
 console.log(str1);
 console.log(str2);
 console.log(str3);
-</pre>
+```
 
 #### 실행결과
 
-<pre>
+```javascript
 > node main
-</pre>
+```
 
 ![alt text](https://user-images.githubusercontent.com/57579709/104084488-c5a7b900-528a-11eb-9113-70d1c30420f3.png)
 
@@ -80,15 +80,17 @@ console.log(str3);
 
 조건연산자는 (조건)? A:B의 형태로 나타내는데, 예로 설명하는 것이 이해하기 더 쉽습니다.
 
-<pre>
+```javascript
 (a > b)? console.log("a is bigger than b") : console.log("b is bigger than a");
-</pre>
+```
 
 <br/>
 
 <hr/>
 
 ## 자료형
+
+[DataType.js](url)
 
 자바스크립트에서는 별도의 자료형을 **명시하지 않습니다**. 해당 변수에 대응하는 값에 따라 자료형이 결정됩니다.
 
@@ -97,8 +99,95 @@ console.log(str3);
 
 이러한 변수들을 선언할 때에는 `var`키워드를 이용하여 변수를 선언합니다.
 
-또한, 자바스크립트의 기본 자료형으로는 `Number, String, Boolean`이 있습니다.
+또한, 자바스크립트의 기본 자료형으로는 `Number, String, Boolean`이 있습니다.  
+이들 기본 자료형은 **내장형객체**라는 개념으로 동작하게 되는데,
+`new`키워드를 통해 생성할 수 있습니다. 이때 자료형은 number, string. boolean이 아닌 object로 표현됩니다.
 
 ### Number
 
-`Number`는 숫자와 관련된 모든 자료형을 가집니다. 
+`Number`는 숫자와 관련된 모든 자료형을 가집니다. 예시 소스코드는 아래와 같습니다.
+
+```javascript
+var int_data = 1;
+var float_data1 = Number('1.0');
+var float_data2 = new Number('4.1254'); //new를 통해 객체를 생성
+typeof int_data //typeof는 어떤 자료형인지를 반환함
+// "number"
+
+typeof float_data1;
+// "number"
+
+typeof float_data2; 
+// "object"
+
+console.log((255).toString(10));
+// "255"
+
+console.log((255).toString(16));
+// "ff"
+
+console.log((255).toString(8));
+// "377"
+
+console.log((255).toString(2));
+// "11111111"
+```
+
+### Array
+
+자바스크립트에서 배열은 객체의 형태로 처리됩니다. 어느정도는 문법의 형태로 지원되는 것도 있습니다. 예를 들어
+
+```javascript
+var array1 = [1, 2, 3];
+```
+에서 `typeof array1`이 수행될 때, 자바스크립트에서는 **원시값**을 호출하는데, 이 때 자동적으로 호출되는 함수가 바로 `valueOf()`라는 함수입니다.  
+마치 자바에서 println()메소드 호출 시 `Obejct.toString()`메소드가 호출되는 것과 유사한 원리입니다.
+
+## 조건문
+
+[Condition.js](url)
+
+결론적으로, 자바와 똑같다고 생각하시면 됩니다. 별도의 설명 없이 아래의 소스코드로 대신하겠습니다.
+
+```javascript
+var a = 3;
+var result = '';
+if(a > 2){
+	result = 'a is greater than 2';
+}
+else if(a == 2){
+	result = 'a is 2';
+}
+else{
+	result = 'a is smaller than 2'; 
+}
+
+console.log(result);
+// "a is greater than 2"
+```
+
+switch문의 경우에도 마찬가지입니다.
+
+```javascript
+var a = 1; 
+var result = '';
+      
+switch (a) {
+	case 1:
+		result = 'Number 1';
+  break;
+	case 2:
+		result = 'Number 2';
+    break;
+	default:
+		result = 'I do not know what number';
+break; 
+}
+
+console.log(result);
+// "Number 1"
+```
+
+### 조건문 실습
+
+[양수 구별하기](url)
