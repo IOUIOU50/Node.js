@@ -190,4 +190,75 @@ console.log(result);
 
 ### 조건문 실습
 
-[양수 구별하기](https://github.com/IOUIOU50/Node.js/blob/master/1_javascript_Basic/Condition.js)
+[양수 구별하기](https://github.com/IOUIOU50/Node.js/blob/master/1_javascript_Basic/Exercise.js)
+
+[자판기](https://github.com/IOUIOU50/Node.js/blob/master/1_javascript_Basic/Exercise_2.js)
+## 반복문
+
+자바스크립트의 반복문은 다른 프로그래밍 언어와 거의 유사합니다. `for`문을 통해 반복문을 사용할 수 있습니다.
+
+```javascript
+var array = new Array();
+
+for (var i = 0; i < 10; i++) {
+	array.push(i);
+}
+
+console.log(array.toString());
+// "0,1,2,3,4,5,6,7,8,9"
+```
+
+### for-in 문법
+
+위의 소스코드에서는 배열을 생성하여 배열에 값을 `push`하는 동작을 통해 반복문을 설명했습니다.  
+이때, 이미 배열에 값이 존재하고, 배열의 값을 **탐색**하는데 좀 더 간략한 방법을 사용하고 싶을 때  
+`for-in`문법을 사용하시면 됩니다.
+
+```javascript
+var a = ['a', 'b', 'c', 'x', 'y', 'z'];
+var result = '';
+
+for (var i in a) {
+	result += 'index:'+ i + ', value:'+ a[i] + '\n'; 
+}
+
+console.log(result);
+
+// "index:0, value:a
+// index:1, value:b
+// index:2, value:c
+// index:3, value:x
+// index:4, value:y
+// index:5, value:z"
+```
+
+`for-in`문은 for문으로 모두 대체 가능하고, 배열을 탐색할 때만 사용할 수 있어 그 사용 범위가 제한적이기 때문에 잘 사용하지 않는다고 합니다. (저역시 반복문의 많은 응용이 있는 것을 알고있고, 사용법도 알고 있지만 이러한 사용법이 크게 도움이 된다 생각하지 않고, 오히려 깔끔한 코드를 망치는 것이라 생각합니다.)
+
+### while과 do-while
+
+`while`문은 특정 조건 안에서 계속 반복하는 특성을 지니고 있습니다.
+
+```javascript
+var i = 0;
+
+while (i < 10) {
+	i++; 
+}
+
+console.log(i);
+// 10
+```
+
+`do-while`문은 최소 1회는 반복문이 반드시 실행되는 특징을 가지고 있습니다. do while같은 경우도 충분히 대체할 방법이 많지만, do while을 쓰는 법이 코드가 더 직관적이고 편리하여 사용법과 응용에 대해 이해하고 있으면 도움이 될 거라 생각합니다.
+
+```javascript
+var i = 0; 
+
+do {
+  i++;
+} while (i < 10)
+  
+console.log(i)
+// 10
+```
+
