@@ -262,3 +262,6 @@ console.log(i)
 // 10
 ```
 
+### 실습
+[반복문을 이용하여 역순으로 출력하기](https://github.com/IOUIOU50/Node.js/tree/master/1_javascript_Basic/Exercise_Loop.js)
+
