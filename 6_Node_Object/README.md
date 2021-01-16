@@ -18,9 +18,9 @@
 
 콘솔화면을 제어하는 객체입니다. 자주쓰이는 메소드는 아래와 같습니다.
 
- * console.log() : 메시지 출력
- * console.time(label) : 시간측정 시작
- * console.timeEnd(label) : 시간측정 종료
+* console.log() : 메시지 출력
+* console.time(label) : 시간측정 시작
+* console.timeEnd(label) : 시간측정 종료
 
 ### log 사용 예
 
@@ -208,3 +208,88 @@ fs.readFile('notexist.txt', 'utf8', function(err, data) { // 존재하지 않는
     }
 });
 ```
+
+---
+
+### Event 모듈
+
+Event 모듈은 이벤트를 활용하는 객체에 대해 어떤 이벤트가 발생하면, 이 발생한 이벤트에 대해 대응하는 콜백 함수를 가지고 있습니다. 이러한 함수를 `EventListener`라고 합니다. 이렇게 함으로써 이벤트가 발생하면 -> 등록된 Listener를 순회하며 실행하게 됩니다. 콜백이 실현되고 있는 것이죠. 좀 더 깊은 내용은 디자인 패턴 중 하나인 `Observer Pattern`을 이해하시면 되겠습니다.
+
+[Observer pattern 보충설명](https://ko.wikipedia.org/wiki/%EC%98%B5%EC%84%9C%EB%B2%84_%ED%8C%A8%ED%84%B4)
+
+이벤트를 활용하기 위해서는 events.EventEmmiter의 인스턴스를 활용해야합니다. 주 메소드는 아래와 같습니다.
+
+ * emitter.addListener(event, listener) : 이벤트를 생성하는 메소드
+ * emitter.on(event, listener) : addListener()와 동일. 이벤트를 생성
+ * emitter.once(event, listener) : 이벤트를 한 번만 연결한 후 제거
+ * emitter.removeListener(event, listener) : 특정 이벤트의 특정 이벤트 핸들러를 제거
+ * emitter.removeAllListerner([event]) : 모든 이벤트 핸들러 제거
+ * emitter.setMaxListerne(n) : 이벤트 최대 허용 개수를 n으로 지정. 기본 지정 가능 개수는 10개이며, 0을 넘겨주면 연결 개수 제한이 사라짐
+ * emitter.emit(eventName[, ...args]) : 이벤트를 발생
+
+간단한 예제를 통한 이해를 수행해봅시다.
+
+```javascript
+// 전체 코드
+var EventEmitter = require('events');
+
+var custom_event = new EventEmitter();
+
+custom_event.on('call', function() {
+	console.log('이벤트 콜');
+});
+
+custom_event.emit('call');
+```
+
+이제 모듈을 `require`로 불러오는것은 익숙할 것입니다. 단, `events`모듈의 이벤트를 사용하기 위해서는, **events.EventEmmitter인스턴스를 이용한다** 라고 언급한 적이 있습니다.  
+최종적으로 이벤트를 활용하기 위해서는 `new EventEmitter()`를 통해 가져와야 할 것입니다.
+
+```javascript
+var EventEmitter = require('events');
+
+var custom_event = new EventEmitter();
+```
+
+`custom_event`가 바로 우리가 이벤트를 등록하고 사용하기 위한 변수입니다.
+
+위에서 `on()`메소드를 설명했는데, 2개의 인자가 들어갑니다.  
+첫 번째 인자는 이벤트의 이름(문자열),  
+두 번째 인자는 이벤트 발생시 수행할 동작에 대한 함수입니다.
+
+```javascript
+custom_event.on('call', function() {
+	console.log('이벤트 콜');
+});
+```
+
+마지막으로 의도한 상황에서, 해당 이벤트를 발생시키는 코드입니다.
+
+```javascript
+custom_event.emit('call');
+```
+
+이제 이벤트를 제거하겠습니다.
+
+이벤트를 제거하는 메소드는 두 가지가 있습니다.
+
+* removeListener(eventName) : 특정 이벤트리스너를 제거
+* removeAllListener() : 모든 이벤트 리스너 제거
+
+소스코드를 확인해 보겠습니다.
+
+```javascript
+var EventEmitter = require('events');
+
+var custom_event = new EventEmitter();
+
+custom_event.on('call', function() {
+	console.log('이벤트 콜');
+});
+
+custom_event.removeAllListeners();
+
+custom_event.emit('call');
+```
+
+`custom_event.on()`부분까지는 동일하고, `removeAllListener()`메소드를 통해 모든 리스너를 제거한 상태에서 eamit();을 호출하면 아무것도 출력되지 않게 됩니다.
