@@ -1,0 +1,12 @@
+{
+  "name": "10_socket.io",
+  "version": "1.0.0",
+  "description": "클라이언트란 서버에게 서비스를 요청하는 사용자나 컴퓨터,  \r 서버란 요청받은 서비스를 처리하여 제공하는 컴퓨터 입니다.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
